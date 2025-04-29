@@ -25,4 +25,4 @@ Data Modeling
 Data Visualization
 
 📁 Project Files
-SalesDashboard.pbix - Main Power BI file
+AdvncdSales.pbix - Main Power BI file
