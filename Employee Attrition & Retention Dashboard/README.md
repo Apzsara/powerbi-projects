@@ -18,8 +18,6 @@ Power BI
 
 DAX
 
-SQL
-
 Python (Pandas, Numpy)
 
 Power Query
@@ -29,4 +27,4 @@ Data Analytics
 Data Visualization
 
 📁 Project Files
-EmployeeAttritionDashboard.pbix - Main Power BI file
+Attrition.pbix - Main Power BI file
