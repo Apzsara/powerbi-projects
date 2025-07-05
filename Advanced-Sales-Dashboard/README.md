@@ -1,28 +1,43 @@
-Advanced Sales Dashboard - Power BI Project
-📊 Project Overview
-This project is an interactive Sales Dashboard built using Power BI. It integrates multiple data sources to track sales KPIs, analyze regional performance, and support data-driven decision-making.
+# 📊 Advanced Sales Dashboard – Power BI
+## 🔍 Overview
+A clean and interactive Power BI dashboard to analyze sales performance by revenue, profit, orders, regions, and time. Designed with strong UX, refined visuals, and robust DAX logic to support business insights.
 
-🚀 Key Features
-Dynamic KPIs (Revenue, Units Sold, Profit Margin)
+## ✅ Key Highlights
 
-Regional and Product-wise Drill-Down Analysis
+### 🖥️ Main Dashboard:
+- KPI Cards: **Total Revenue, Total Profit, Total Orders, Profit Margin, YoY Change**
+- **Cumulative Revenue Trend** with YoY % tooltip
+- Region-wise **Sales by Category** (stacked bar)
+- **Sub-Category Sales & Profit Performance** (scrollable horizontal bars)
+- **Slicers**: Year, Region, Product Category
+- Consistent **color palette**:  
+  - Green (Profit), Blue (Revenue), Purple (Orders), Yellow (Margin), Teal (YoY)
 
-Advanced Slicers for better interactivity
+### 🔎 Drillthrough Page – *Order Details*:
+- Region-wise **Revenue Trend** (Area Chart with YoY tooltip)
+- **Sales by State Map** with gradient conditional formatting
+- Customer-level **Matrix** showing Order Count, Revenue, and Profit
+- **Conditional formatting** applied to Profit column (Green for +ve, Red for –ve)
+- Back navigation (requires Power BI Service)
+  
+## ⚙️ Tools & Skills Used
+- **Power BI Desktop**
+- **DAX**:  
+  `CALCULATE`, `FILTER`, `ALL`, `REMOVEFILTERS`, `SAMEPERIODLASTYEAR`, `TOTALYTD`, `SUMX`, `DIVIDE`, etc.
+- **Drillthrough filters**
+- Tooltip customizations
+- Scrollable visual layout
+- Page-level & visual-level filtering
+- Conditional formatting (map + matrix)
 
-Data cleaning and modeling using Power Query
+## 📂 Files Included
 
-Performance optimization for faster insights
+- `AdvancedSalesDashboard.pbix` – Power BI file
+- Screenshots of main & drillthrough pages
+- This `README.md` file
 
-🛠️ Tools & Skills Used
-Power BI
+---
 
-DAX
+## 🎯 Purpose
 
-Power Query
-
-Data Modeling
-
-Data Visualization
-
-📁 Project Files
-AdvncdSales.pbix - Main Power BI file
+To showcase real-world BI reporting with clean design, optimized DAX, and practical usability for business stakeholders and hiring managers.
