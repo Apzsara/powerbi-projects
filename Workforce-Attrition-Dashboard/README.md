@@ -45,4 +45,4 @@ This Power BI dashboard explores employee attrition data across multiple dimensi
 ---
 
 ## 📌 Note
-The dataset used is sample HR data containing fields such as Job Role, Tenure, Salary, Job Satisfaction, and Attrition status.
+The dataset used is a sample HR dataset with fields such as Job Role, Tenure, Salary, Job Satisfaction, Attrition status, and many other demographic and employment-related attributes.
