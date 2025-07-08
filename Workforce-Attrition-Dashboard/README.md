@@ -27,7 +27,7 @@ This Power BI dashboard explores employee attrition data across multiple dimensi
 
 ## ⚙️ Tools & Features Used
 - **Power BI Desktop**
-- **Python (Pandas)** – Used for basic data cleaning  
+- **Python (Pandas)** – Used for basic data cleaning (removal of redundant/constant columns)
 - **DAX Measures**  
   - Examples: `CALCULATE`, `FILTER`, `DIVIDE`, `SUMX`  
 - Conditional formatting (bar chart)  
