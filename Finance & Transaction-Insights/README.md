@@ -37,35 +37,35 @@ KPI cards dynamically switch context based on **Card Type** or **Transaction Typ
 
 ### Core Visuals
 
-**Fraud Rate by Transaction Amount**  
-$100–$200 range shows the highest fraud concentration (~5x vs sub-$100)
+**1. Fraud Rate by Transaction Amount**  
+Transactions $300+ show the highest fraud rate (0.60%) and drive **42% ($54K)** of total fraud loss
 
-**Fraud Rate vs Fraud Loss by Card Type**  
-Credit cards have the highest fraud rate, while Debit cards generate 3.6x higher fraud losses
+**2. Fraud Rate vs Fraud Loss by Card Type**  
+Credit cards have the highest fraud rate (0.16%), while Debit cards generate **$66K** in fraud losses
 
-**Customer Risk Matrix**  
-Scatter plot of customers by Debt-to-Income ratio vs Credit Score, highlighting 442 high-risk customers
+**3. Customer Risk Matrix**  
+Scatter plot of customers by Debt-to-Income ratio vs Credit Score, highlighting **442 high-risk customers** in the critical risk zone
 
-**Top Fraud Loss by Merchant Category**  
-Department Stores account for $24K in fraud losses; top 3 categories contribute 38% of total fraud
+**4. Top Fraud Loss by Merchant Category**  
+Department Stores lead with **$26K (20% of total)**; top 3 categories (Dept Stores, Furniture, Gardening Supplies) contribute **38% of total fraud**
 
 ---
 
 ## Key Insights
 
-- 38% of fraud losses come from just 3 merchant categories
-- 17% of customers fall into a critical risk segment
-- Highest fraud rate does not equal highest financial impact
-- $100–$200 transactions present elevated fraud exposure
+- Top 3 merchant categories drive **38% of fraud losses**
+- **17% of customers** fall into a critical risk segment (high DTI + low credit score)
+- Highest fraud rate does not equal highest financial impact (Credit **0.16%** vs Debit **$66K** loss)
+- Transactions **$300+** represent the highest fraud exposure (**0.60% rate**)
 
 ---
 
 ## Recommended Actions
 
-- Prioritize fraud monitoring for Department Stores ($24K loss, 38% of total fraud)
-- Apply step-up verification for Debit card transactions in the $100–$200 range
-- Flag 442 high-risk customers (high DTI + low credit score) for proactive reviews
-- Reallocate fraud prevention resources from Credit to Debit cards based on loss volume
+- **Prioritize Department Stores:** $26K loss (20% of total fraud)
+- **Flag $300+ transactions:** 42% of fraud loss ($54K) with 0.60% fraud rate
+- **Monitor 442 high-risk customers:** Proactive reviews for high DTI + low credit score segment
+- **Reallocate resources to Debit cards:** $66K loss despite lower fraud rate than Credit
 
 ---
 
@@ -97,6 +97,7 @@ Department Stores account for $24K in fraud losses; top 3 categories contribute 
 - Year-over-Year analysis using `SAMEPERIODLASTYEAR`
 - Risk segmentation with `CALCULATE` and `FILTER`
 - Safe percentage calculations using `DIVIDE`
+- Custom formatting with `FORMAT`
 
 ---
 
