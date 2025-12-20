@@ -6,15 +6,16 @@
 ---
 
 ## Overview
-
 This project analyzes **13M financial transactions ($706.87M)** from **2010–2019** to identify fraud patterns, high-risk customer segments, and merchant categories driving fraud losses.
 
-The dashboard supports fraud and risk teams by enabling loss-based prioritization instead of relying on fraud rate alone.
+The dashboard defaults to the **latest available year (2019)**, reflecting real-world reporting practices.  
+All KPIs and insights referenced below are based on the **2019 view**, while the full dataset is retained for historical analysis.
+
+The focus is on **loss-based fraud prioritization**, rather than relying on fraud rate alone.
 
 ---
 
-## Business Objective
-
+## Business Objectives
 - Identify where fraud is concentrated across customers, merchants, and transaction types  
 - Highlight high-risk customer segments for proactive monitoring  
 - Support data-driven allocation of fraud prevention resources  
@@ -23,97 +24,89 @@ The dashboard supports fraud and risk teams by enabling loss-based prioritizatio
 
 ## Dashboard Highlights
 
-### Key KPIs
+### Key KPIs (2019 View)
+KPI cards dynamically respond to Card Type and Transaction Type selections.
 
-KPI cards dynamically switch context based on **Card Type** or **Transaction Type** selection:
-
-- Total Transaction Value: $61.16M (2019 view)
-- Fraud Rate: 0.12% (↑ 0.01% YoY)
-- Fraud Loss: $128K (↑ 10% YoY)
-- High-Risk Customers: 442 (17% of customer base)
-- Avg Fraud Transaction: $94 (1.8x normal)
+- **Total Transaction Value:** $61.16M  
+- **Fraud Rate:** 0.12% (↑ 0.01% YoY)  
+- **Fraud Loss:** $128K (↑ 10% YoY)  
+- **High-Risk Customers:** 442 (~37% of 2019 customer base)  
+- **Avg Fraud Transaction:** $94 (1.8× normal transaction)
 
 ---
 
-### Core Visuals
+## Core Visuals
 
-**1. Fraud Rate by Transaction Amount**  
-Transactions $300+ show the highest fraud rate (0.60%) and drive **42% ($54K)** of total fraud loss
+### Fraud Rate by Transaction Amount
+- Transactions **$300+** show the highest fraud rate (**0.60%**)  
+- This segment drives **42% of total fraud loss ($54K)**
 
-**2. Fraud Rate vs Fraud Loss by Card Type**  
-Credit cards have the highest fraud rate (0.16%), while Debit cards generate **$66K** in fraud losses
+### Fraud Rate vs Fraud Loss by Card Type
+- **Credit cards** have the highest fraud rate (**0.16%**)  
+- **Debit cards** generate higher total fraud losses (**$66K**), despite a lower fraud rate
 
-**3. Customer Risk Matrix**  
-Scatter plot of customers by Debt-to-Income ratio vs Credit Score, highlighting **442 high-risk customers** in the critical risk zone
+### Customer Risk Matrix
+- Scatter plot of customers by **Debt-to-Income ratio vs Credit Score**
+- Highlights **442 high-risk customers** clustered in the critical risk zone
 
-**4. Top Fraud Loss by Merchant Category**  
-Department Stores lead with **$26K (20% of total)**; top 3 categories (Dept Stores, Furniture, Gardening Supplies) contribute **38% of total fraud**
+### Top Fraud Loss by Merchant Category
+- **Department Stores** lead with **$26K (20%)** of total fraud loss  
+- Top three categories contribute **38% of total fraud losses**
 
 ---
 
 ## Key Insights
-
-- Top 3 merchant categories drive **38% of fraud losses**
-- **17% of customers** fall into a critical risk segment (high DTI + low credit score)
-- Highest fraud rate does not equal highest financial impact (Credit **0.16%** vs Debit **$66K** loss)
-- Transactions **$300+** represent the highest fraud exposure (**0.60% rate**)
+- Fraud losses are highly concentrated, with **38% driven by three merchant categories**
+- **37% of customers in 2019** fall into a critical risk segment
+- Highest fraud rate does not equate to highest financial impact
+- **$300+ transactions** represent the highest fraud exposure
 
 ---
 
 ## Recommended Actions
-
-- **Prioritize Department Stores:** $26K loss (20% of total fraud)
-- **Flag $300+ transactions:** 42% of fraud loss ($54K) with 0.60% fraud rate
-- **Monitor 442 high-risk customers:** Proactive reviews for high DTI + low credit score segment
-- **Reallocate resources to Debit cards:** $66K loss despite lower fraud rate than Credit
+- Prioritize monitoring for **Department Stores** ($26K loss, 20% of total)
+- Flag **$300+ transactions** (42% of fraud loss, 0.60% fraud rate)
+- Proactively review **442 high-risk customers** (high DTI + low credit score)
+- Reallocate fraud prevention focus from **Credit to Debit cards** based on loss volume
 
 ---
 
 ## Technical Workflow
 
 ### Python (Pandas)
-
-- Data cleaning and validation across 3 core CSV files
-- Merged `fraud_labels.json` and `mcc.json` into transaction data
-- Feature engineering:
-  - Debt-to-Income ratio
-  - Customer retirement status flag (`already_retired`)
-  - Transaction date features (year, month)
-  - Transaction type classification (debit, refund) derived from amount sign
-
----
+- Data cleaning and validation across core datasets  
+- Merged fraud labels and merchant category mappings  
+- Feature engineering focused on:
+  - Debt-to-Income ratio  
+  - Transaction type classification (debit, refund)
+  - Transaction date attributes (year, month)
 
 ### SQL (MySQL)
-
 - Joined customer, card, and transaction tables into a single enriched dataset (13M+ rows)
-- Resolved data quality issue where merchant location fields mixed U.S. abbreviations with country names
+- Resolved merchant location data quality issues
 - Created aggregated views for Power BI performance optimization
 
----
-
 ### Power BI & DAX
-
-- Dynamic KPIs using `SWITCH` for parameter-based card/transaction type switching
+- Dynamic KPIs using `SWITCH` for amount bucketing and metric logic
 - Year-over-Year analysis using `SAMEPERIODLASTYEAR`
-- Risk segmentation with `CALCULATE` and `FILTER`
-- Safe percentage calculations using `DIVIDE`
-- Custom formatting with `FORMAT`
+- Risk segmentation using `CALCULATE` and `FILTER`
+- Percentage calculations using `DIVIDE`
 
 ---
 
 ## Files Included
+- `screenshots/` — Dashboard preview images  
+- **PBIX File:** [Download here](https://drive.google.com/file/d/1x7qqMFZzxFh84mV8_W4GOmnB9DRVPFxs/view?usp=drive_link)
 
-- `screenshots/` — Dashboard preview images
-- `Fraud_Risk_Dashboard.pbix` — Power BI file
+> Note: The PBIX file is hosted externally due to file size constraints.
 
 ---
 
 ## Dataset Notes
-
-- `user.csv` — customer attributes
-- `card.csv` — card-level details
-- `transaction.csv` — transaction-level data
-- `fraud_labels.json` — fraud indicators
-- `mcc.json` — merchant category mappings
+- `user.csv` — customer attributes  
+- `card.csv` — card-level details  
+- `transaction.csv` — transaction-level data  
+- `fraud_labels.json` — fraud indicators  
+- `mcc.json` — merchant category mappings  
 
 All datasets were cleaned, validated, and enriched prior to analysis.
